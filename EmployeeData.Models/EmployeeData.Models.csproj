@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BenefitCreate.cs" />
+    <Compile Include="BenefitEdit.cs" />
     <Compile Include="BenefitListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
