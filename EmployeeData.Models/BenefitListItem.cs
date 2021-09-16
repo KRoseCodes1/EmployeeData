@@ -11,5 +11,6 @@ namespace EmployeeData.Models
         public int BenefitId { get; set; }
         public string BenefitType { get; set; }
         public double Cost { get; set; }
+        public bool FullTimeOnly { get; set; }
     }
 }

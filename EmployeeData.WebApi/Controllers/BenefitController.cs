@@ -45,5 +45,12 @@ namespace EmployeeData.WebApi.Controllers
                 return InternalServerError();
             return Ok();
         }
+        [HttpGet, Route("benefit/parttime")]
+        public IHttpActionResult GetAllPartTime()
+        {
+            BenefitService benefitService = new BenefitService();
+            var benefits = benefitService.GetBenefitsForPartTime();
+            return Ok(benefits);
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace EmployeeData.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Benefits.Select(e => new BenefitListItem { BenefitId = e.BenefitId, BenefitType = e.BenefitType, Cost = e.Cost });
+                var query = ctx.Benefits.Select(e => new BenefitListItem { BenefitId = e.BenefitId, BenefitType = e.BenefitType, Cost = e.Cost, FullTimeOnly = e.FullTimeOnly });
                 return query.ToArray();
             }
         }
@@ -46,6 +46,14 @@ namespace EmployeeData.Services
                 var entity = ctx.Benefits.Single(e => e.BenefitId == id);
                 ctx.Benefits.Remove(entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+        public IEnumerable<BenefitListItem> GetBenefitsForPartTime()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Benefits.Where(e => e.FullTimeOnly == false).Select(e => new BenefitListItem { BenefitId = e.BenefitId, BenefitType = e.BenefitType, Cost = e.Cost });
+                return query.ToArray();
             }
         }
     }
