@@ -18,7 +18,7 @@ namespace EmployeeData.WebApi.Controllers
             return Ok(benefits);
         }
         // api/benefit
-        public IHttpActionResult Post(BenefitCreate model)
+        public IHttpActionResult Post([FromBody]BenefitCreate model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -27,8 +27,8 @@ namespace EmployeeData.WebApi.Controllers
                 return InternalServerError();
             return Ok();
         }
-        // api/Benefit
-        public IHttpActionResult Put(BenefitEdit updatedModel)
+        // api/benefit
+        public IHttpActionResult Put([FromBody]BenefitEdit updatedModel)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -37,15 +37,15 @@ namespace EmployeeData.WebApi.Controllers
                 return InternalServerError();
             return Ok();
         }
-        // api/Benefit/{id}
-        public IHttpActionResult Delete(int BenefitId)
+        // api/benefit/{id}
+        public IHttpActionResult Delete([FromUri]int id)
         {
             BenefitService benefitService = new BenefitService();
-            if (!benefitService.RemoveBenefit(BenefitId))
+            if (!benefitService.RemoveBenefit(id))
                 return InternalServerError();
             return Ok();
         }
-        [HttpGet, Route("benefit/parttime")]
+        [HttpGet, Route("Benefit/parttime")]
         public IHttpActionResult GetAllPartTime()
         {
             BenefitService benefitService = new BenefitService();
