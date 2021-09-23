@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocationCreate.cs" />
     <Compile Include="BenefitCreate.cs" />
     <Compile Include="BenefitEdit.cs" />
     <Compile Include="BenefitListItem.cs" />
