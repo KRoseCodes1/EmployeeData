@@ -158,5 +158,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeData.Data\EmployeeData.Data.csproj">
+      <Project>{B2BCF001-A42D-4C7F-92DE-1BFB9D09A4D3}</Project>
+      <Name>EmployeeData.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeData.Models\EmployeeData.Models.csproj">
+      <Project>{cc936547-5160-4543-8aa2-424bbd51162e}</Project>
+      <Name>EmployeeData.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
