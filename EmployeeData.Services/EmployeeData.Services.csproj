@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BenefitService.cs" />
+    <Compile Include="EmployeeService.cs" />
     <Compile Include="LocationServices.cs" />
     <Compile Include="PositionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
