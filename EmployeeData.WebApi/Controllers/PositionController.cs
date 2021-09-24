@@ -33,8 +33,5 @@ namespace EmployeeData.WebApi.Controllers
             var positions = positionService.GetPositions();
             return Ok(positions);
         }
-        [HttpPost]
-        
-        
     }
 }
