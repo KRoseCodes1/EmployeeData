@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using EmployeeData.WebApi.Models;
 using EmployeeData.WebApi.Providers;
 using EmployeeData.WebApi.Results;
+using EmployeeData.Data;
 
 namespace EmployeeData.WebApi.Controllers
 {
