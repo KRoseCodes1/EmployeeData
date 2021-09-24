@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeData.Models
 {
-    class LocationlistItem
+    public class LocationlistItem
     {
         public string LocationName { get; set; }
         public string PhoneNumber { get; set; }
