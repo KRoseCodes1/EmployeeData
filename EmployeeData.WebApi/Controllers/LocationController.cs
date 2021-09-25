@@ -29,6 +29,12 @@ namespace EmployeeData.WebApi.Controllers
         public IHttpActionResult Get(int id)
         {
             LocationServices locationService = CreateLocationService();
+            var location = locationService.GetLocations();
+            return Ok(location);
+        }
+        public IHttpActionResult GetById(int id)
+        {
+            LocationServices locationService = CreateLocationService();
             var location = locationService.GetLocationById(id);
             return Ok(location);
         }

@@ -18,9 +18,6 @@ namespace EmployeeData.Services
         {
             _userId = userId;
         }
-
-
-
         public bool CreateLocation(LocationCreate model)
         {
             var entity =
@@ -30,16 +27,12 @@ namespace EmployeeData.Services
                  Address = model.Address,
                  PhoneNumber = model.PhoneNumber,
              };
-
-
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Locations.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-
-
         public  IEnumerable<LocationListItem> GetLocations()
         {
             using (var ctx = new ApplicationDbContext())
@@ -59,10 +52,8 @@ namespace EmployeeData.Services
                               );
 
                 return query.ToArray();
-
             }
         }
-
         public LocationListItem GetLocationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -80,12 +71,7 @@ namespace EmployeeData.Services
                             PhoneNumber = entity.PhoneNumber,
                             Address = entity.Address,
                         };
-
-
             }
-
-
-
         }
         public bool UpdateLocation(LocationEdit model)
         {

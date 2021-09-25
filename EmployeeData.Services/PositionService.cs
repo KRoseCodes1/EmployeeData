@@ -72,9 +72,6 @@ namespace EmployeeData.Services
                 return ctx.SaveChanges() == 1;
                 
             }
-
-        }
-
-        
+        }      
     }
 }
