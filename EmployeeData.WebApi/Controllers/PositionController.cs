@@ -20,6 +20,7 @@ namespace EmployeeData.WebApi.Controllers
             return positionService;
         }
         [HttpGet]
+        [Route("api/position")]
         public IHttpActionResult GetAll()
         {
             PositionService positionService = CreatePositionServcie();
@@ -27,10 +28,11 @@ namespace EmployeeData.WebApi.Controllers
             return Ok(Positions);
         }
         [HttpGet]
-        public IHttpActionResult GetPositionById()
+        [Route("api/position/{Id}")]
+        public IHttpActionResult GetPosition()
         {
             PositionService positionService = CreatePositionServcie();
-            var positions = positionService.GetPositions();
+            var positions = positionService.GetPositionsById();
             return Ok(positions);
         }
         [HttpPost]
