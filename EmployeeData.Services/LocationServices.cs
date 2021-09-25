@@ -40,7 +40,7 @@ namespace EmployeeData.Services
         }
 
 
-        public  IEnumerable<LocationlistItem> GetLocations()
+        public  IEnumerable<LocationListItem> GetLocations()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -49,7 +49,7 @@ namespace EmployeeData.Services
                       .Locations
                        .Select(
                             e =>
-                                 new LocationlistItem
+                                 new LocationListItem
                                  {
                                      LocationName = e.LocationName,
                                      Address = e.Address,
@@ -63,7 +63,7 @@ namespace EmployeeData.Services
             }
         }
 
-        public LocationlistItem GetLocationById(int id)
+        public LocationListItem GetLocationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -74,7 +74,7 @@ namespace EmployeeData.Services
                 return
 
 
-                        new LocationlistItem
+                        new LocationListItem
                         {
                             LocationName = entity.LocationName,
                             PhoneNumber = entity.PhoneNumber,

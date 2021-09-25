@@ -13,6 +13,6 @@ namespace EmployeeData.Models
         public string Email { get; set; }
         public int LocationId { get; set; }
         public int PositionId { get; set; }
-        public List<int> Benefits { get; set }
+        public List<int> Benefits { get; set; }
     }
 }
