@@ -40,11 +40,14 @@ namespace EmployeeData.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<Position> GetPositions()
+        public IEnumerable<Position> GetPositionsById()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
-                return ctx.Positions.ToArray();
+                var query = ctx.Positions.Select
+                    (e => new Position { PositionId = e.PositionId, Title = e.Title,});
+                return query.ToArray();
+ 
             }
         }
         public bool PositionEdit(UpdatePosition model)

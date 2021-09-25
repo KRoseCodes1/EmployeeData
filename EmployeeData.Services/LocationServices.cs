@@ -1,9 +1,11 @@
+
 ﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using EmployeeData.Models;
 using EmployeeData.Data;
 
@@ -18,6 +20,7 @@ namespace EmployeeData.Services
         }
 
 
+
         public bool CreateLocation(LocationCreate model)
         {
             var entity =
@@ -28,12 +31,14 @@ namespace EmployeeData.Services
                  PhoneNumber = model.PhoneNumber,
              };
 
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Locations.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
+
 
         public  IEnumerable<LocationlistItem> GetLocations()
         {

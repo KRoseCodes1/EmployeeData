@@ -20,6 +20,7 @@ namespace EmployeeData.WebApi.Controllers
             return positionService;
         }
         [HttpGet]
+        [Route("api/position")]
         public IHttpActionResult GetAll()
         {
             PositionService positionService = CreatePositionServcie();
@@ -27,43 +28,12 @@ namespace EmployeeData.WebApi.Controllers
             return Ok(Positions);
         }
         [HttpGet]
-        public IHttpActionResult GetPositionById()
+        [Route("api/position/{Id}")]
+        public IHttpActionResult GetPosition()
         {
             PositionService positionService = CreatePositionServcie();
-            var positions = positionService.GetPositions();
+            var positions = positionService.GetPositionsById();
             return Ok(positions);
         }
-        [HttpPost]
-        public IHttpActionResult CreateNewPosition(PositionCreate position)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            var service = CreatePositionServcie();
-            if (!service.CreatePosition(position))
-                return InternalServerError();
-            return Ok();
-        }
-        [HttpPut]
-        public IHttpActionResult UpdateCurrentPosition(UpdatePosition position)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            var service = CreatePositionServcie();
-            if (!service.PositionEdit(position))
-                return InternalServerError();
-            return Ok();
-        }
-        [HttpDelete]
-        public IHttpActionResult DeletePosition(int positionId)
-        {
-            var service = CreatePositionServcie();
-            if (!service.DeletePosition(positionId))
-                return InternalServerError();
-            return Ok();
-        }
-
-
-
-        
     }
 }
