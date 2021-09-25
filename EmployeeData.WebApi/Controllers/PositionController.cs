@@ -34,7 +34,36 @@ namespace EmployeeData.WebApi.Controllers
             return Ok(positions);
         }
         [HttpPost]
-        
+        public IHttpActionResult CreateNewPosition(PositionCreate position)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreatePositionServcie();
+            if (!service.CreatePosition(position))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpPut]
+        public IHttpActionResult UpdateCurrentPosition(UpdatePosition position)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreatePositionServcie();
+            if (!service.PositionEdit(position))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpDelete]
+        public IHttpActionResult DeletePosition(int positionId)
+        {
+            var service = CreatePositionServcie();
+            if (!service.DeletePosition(positionId))
+                return InternalServerError();
+            return Ok();
+        }
+
+
+
         
     }
 }

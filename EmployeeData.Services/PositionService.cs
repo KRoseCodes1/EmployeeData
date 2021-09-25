@@ -59,12 +59,12 @@ namespace EmployeeData.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeletePosition(int PositionId)
+        public bool DeletePosition(int positionId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Positions
-                .Single(e => e.PositionId == PositionId);
+                .Single(e => e.PositionId == positionId);
                 ctx.Positions.Remove(entity);
                 return ctx.SaveChanges() == 1;
                 
