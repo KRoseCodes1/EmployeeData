@@ -62,5 +62,15 @@ namespace EmployeeData.WebApi.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateEmployeeService();
+
+            if (!service.DeleteEmployee(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }

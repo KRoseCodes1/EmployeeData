@@ -113,5 +113,19 @@ namespace EmployeeData.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteEmployee(int employeeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Employees
+                    .Single(e => e.EmployeeId == employeeId);
+
+                ctx.Employees.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
