@@ -12,8 +12,8 @@ namespace EmployeeData.Models
         public int PositionId { get; set; }
         public string Title { get; set; }
         public double PayRate { get; set; }
-        [ForeignKey(nameof(Position))]
-        public virtual Position Position { get; set; }
+        //[foreignkey(nameof(position))]
+        //public virtual position position { get; set; }
     }
     public class PositionList
     {
@@ -25,8 +25,8 @@ namespace EmployeeData.Models
     {
        
         public int PositionId { get; set; }
-        public string Title { get; set; }
-        public double PayRate { get; set; }
+        public string title { get; set; }
+        public double payrate { get; set; }
     }
     public class UpdatePosition
     {
