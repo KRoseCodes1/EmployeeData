@@ -40,12 +40,12 @@ namespace EmployeeData.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<Position> GetPositionsById()
+        public IEnumerable<PositionList> GetPositionsById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Positions.Select
-                    (e => new Position { PositionId = e.PositionId, Title = e.Title,});
+                var query = ctx.Positions.Where(e => id == e.PositionId).Select
+                    (e => new PositionList { PositionId = e.PositionId, Title = e.Title,});
                 return query.ToArray();
  
             }

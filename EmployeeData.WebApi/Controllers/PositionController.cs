@@ -29,10 +29,10 @@ namespace EmployeeData.WebApi.Controllers
         }
         [HttpGet]
         [Route("api/position/{Id}")]
-        public IHttpActionResult GetPosition()
+        public IHttpActionResult GetPosition(int id)
         {
             PositionService positionService = CreatePositionServcie();
-            var positions = positionService.GetPositionsById();
+            var positions = positionService.GetPositionsById(id);
             return Ok(positions);
         }
         [HttpPost]
