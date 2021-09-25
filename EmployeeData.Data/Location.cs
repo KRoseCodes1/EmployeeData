@@ -10,7 +10,7 @@ namespace EmployeeData.Data
     public class Location
     {
         [Key]
-        public int LocationID { get; set; }
+        public int LocationId { get; set; }
         [Required]
         public string LocationName { get; set; }
         [Required]

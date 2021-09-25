@@ -91,6 +91,7 @@
     <Compile Include="BenefitCreate.cs" />
     <Compile Include="BenefitEdit.cs" />
     <Compile Include="BenefitListItem.cs" />
+    <Compile Include="LocationEdit.cs" />
     <Compile Include="LocationlistItem.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="PositionModel.cs" />
