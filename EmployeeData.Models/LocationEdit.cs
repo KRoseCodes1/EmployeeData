@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace EmployeeData.Models
 {
-    public class LocationListItem
+    public class LocationEdit
     {
-        public string LocationName { get; set; }
+        public int LocationId { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
+        public string LocationName { get; set; }
+        
     }
 }
