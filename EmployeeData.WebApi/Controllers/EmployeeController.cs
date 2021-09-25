@@ -19,14 +19,6 @@ namespace EmployeeData.WebApi.Controllers
             var employeeService = new EmployeeService(userId);
             return employeeService;
         }
-
-        public IHttpActionResult Get()
-        {
-            EmployeeService employeeService = CreateEmployeeService();
-            var employees = employeeService.GetEmployees();
-            return Ok(employees);
-        }
-
         public IHttpActionResult Post(EmployeeCreate employee)
         {
             if (!ModelState.IsValid)
@@ -35,6 +27,37 @@ namespace EmployeeData.WebApi.Controllers
             var service = CreateEmployeeService();
 
             if (!service.CreateEmployee(employee))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult Get()
+        {
+            EmployeeService employeeService = CreateEmployeeService();
+            var employees = employeeService.GetEmployees();
+            return Ok(employees);
+        }
+        public IHttpActionResult Get(int id)
+        {
+            EmployeeService employeeService = CreateEmployeeService();
+            var employee = employeeService.GetEmployeesByLocation(id);
+            return Ok(employee);
+        }
+        public IHttpActionResult GetByPosition(int id)
+        {
+            EmployeeService employeeService = CreateEmployeeService();
+            var employee = employeeService.GetEmployeesByPosition(id);
+            return Ok(employee);
+        }
+
+        public IHttpActionResult Put(EmployeeEdit employee)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateEmployeeService();
+
+            if (!service.UpdateEmployee(employee))
                 return InternalServerError();
 
             return Ok();

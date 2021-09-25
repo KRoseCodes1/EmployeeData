@@ -23,8 +23,6 @@ namespace EmployeeData.Data
         public int PositionId { get; set; }
         public virtual Position Position { get; set; }
 
-        //Questionable.
-
         [ForeignKey(nameof(Benefit))]
         public List<int> Benefits { get; set; }
         public virtual Benefit Benefit { get; set; }

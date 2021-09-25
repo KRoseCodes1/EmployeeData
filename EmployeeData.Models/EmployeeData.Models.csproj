@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeCreate.cs" />
+    <Compile Include="EmployeeDetail.cs" />
+    <Compile Include="EmployeeEdit.cs" />
     <Compile Include="EmployeeListItem.cs" />
     <Compile Include="LocationCreate.cs" />
     <Compile Include="BenefitCreate.cs" />
