@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using EmployeeData.WebApi.Models;
+using EmployeeData.Data;
 
 namespace EmployeeData.WebApi
 {

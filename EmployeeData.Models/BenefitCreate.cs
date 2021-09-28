@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeData.Data
+namespace EmployeeData.Models
 {
-    public class Benefit
+    public class BenefitCreate
     {
-        [Key]
-        public int BenefitId { get; set; }
         [Required]
         public string BenefitType { get; set; }
         [Required]

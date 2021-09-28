@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using EmployeeData.WebApi.Providers;
 using EmployeeData.WebApi.Models;
+using EmployeeData.Data;
 
 namespace EmployeeData.WebApi
 {
