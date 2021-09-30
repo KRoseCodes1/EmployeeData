@@ -31,12 +31,14 @@ namespace EmployeeData.WebApi.Controllers
 
             return Ok();
         }
-        public IHttpActionResult Get(int id)
+       
+        public IHttpActionResult Get()
         {
             LocationServices locationService = CreateLocationService();
             var location = locationService.GetLocations();
             return Ok(location);
         }
+       
         public IHttpActionResult GetById(int id)
         {
             LocationServices locationService = CreateLocationService();
