@@ -1,4 +1,6 @@
 ﻿using EmployeeData.Models;
+using EmployeeData.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,39 +12,45 @@ namespace EmployeeData.WebApi.Controllers
 {
     public class LocationController : ApiController
     {
-        [Authorize]
-        public class LocationController : ApiController
+    [Authorize]
+    public class LocationController : ApiController
+    {
+        private LocationServices CreateLocationService()
         {
-            private LocationService LocationService()
-            {
-                var userID = Guid.Parse(userID.Identity.GetUserID());
-                var LocationService = new LocationService(userID);
-                return LocationService;
-            }
-            public IHttpActionResult Post(CreateLocation)
-            {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var LocationService = new LocationServices(userID);
+            return LocationService;
+        }
+        public IHttpActionResult Post(LocationCreate location)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-                var service = CreateLocationService();
+            var service = CreateLocationService();
 
-                if (!service.CreateLocation(location))
-                    return InternalServerError();
+            if (!service.CreateLocation(location))
+                return InternalServerError();
 
-                return Ok();
-            }
-            public class IHttpActionResult Get(int id)
-            {
-                LocationService locationService = CreateLocationService();
-                var location = locationService.GetLocationById(id);
-                return Ok(location);
-            }
+            return Ok();
+        }
+        public IHttpActionResult Get(int id)
+        {
+            LocationServices locationService = CreateLocationService();
+            var location = locationService.GetLocations();
+            return Ok(location);
+        }
+        public IHttpActionResult GetById(int id)
+        {
+            LocationServices locationService = CreateLocationService();
+            var location = locationService.GetLocationById(id);
+            return Ok(location);
+        }
         }
 
         public IHttpActionResult Put(LocationEdit location)
         {
             if (!ModelState.IsValid)
-                return Badrequest(ModelState);
+                return BadRequest(ModelState);
 
             var service = CreateLocationService();
 
@@ -51,7 +59,7 @@ namespace EmployeeData.WebApi.Controllers
 
             return Ok();
 
-        } 
+        }
 
         public IHttpActionResult Delete(int id)
         {
@@ -61,8 +69,8 @@ namespace EmployeeData.WebApi.Controllers
                 return InternalServerError();
 
             return Ok();
-
         }
     }
+  }
 
 }
