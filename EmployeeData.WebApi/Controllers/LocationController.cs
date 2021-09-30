@@ -10,8 +10,6 @@ using System.Web.Http;
 
 namespace EmployeeData.WebApi.Controllers
 {
-    public class LocationController : ApiController
-    {
     [Authorize]
     public class LocationController : ApiController
     {
@@ -45,8 +43,6 @@ namespace EmployeeData.WebApi.Controllers
             var location = locationService.GetLocationById(id);
             return Ok(location);
         }
-        }
-
         public IHttpActionResult Put(LocationEdit location)
         {
             if (!ModelState.IsValid)
@@ -58,9 +54,7 @@ namespace EmployeeData.WebApi.Controllers
                 return InternalServerError();
 
             return Ok();
-
         }
-
         public IHttpActionResult Delete(int id)
         {
             var service = CreateLocationService();
@@ -73,4 +67,3 @@ namespace EmployeeData.WebApi.Controllers
     }
   }
 
-}
